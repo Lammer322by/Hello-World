@@ -15,5 +15,7 @@ def vilson(n):
 
 if vilson(p):
     print("Simple")
+elif(p==1):
+    print("Equals 1")
 else:
     print("Not simple")
