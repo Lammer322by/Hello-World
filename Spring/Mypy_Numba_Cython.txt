@@ -1,0 +1,8 @@
+Время выполнения (округленно):
+'pure_python.Fate': 0.646
+'pure_cython.Fate': 0.267
+'pyx_cython.Fate': 0.103
+'mypy_python.Fate': 0.591
+'numba_jit.Fate': 0.804
+
+pyx - самый быстрый (но не работал сразу)
