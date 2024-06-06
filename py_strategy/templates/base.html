@@ -1,0 +1,20 @@
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cirno Website</title>
+  </head>
+  <body>
+    <p>Let's play</p>
+	<form action="/home/cirno_game" method="GET">
+  	  <input type="text" value={{word}} name="word" />
+ 	   <input type="submit" value="Get!">
+ 	 </form>
+  
+	<form action="/home/cirno_game" method="POST">
+   	 <input type="text" value={{word}} name="word" />
+  	  <input type="submit" value="Post!">
+ 	 </form>
+	<p>{{reaction}}</p>
+
+  </body>
+</html>
