@@ -29,7 +29,8 @@ def root():
 
 @app.route('/home/cirno_game', methods = ['GET', 'POST'])
 def hello_name():
-    word_in=strategy(request)
+    strat=strategy(request)
+    word_in=strat.handrle(request)
     
     if word_in is None:
         word_in=""
