@@ -34,18 +34,17 @@ def root():
 
 @app.route('/home/cirno_game', methods = ['GET', 'POST'])
 def hello_name():
-    reaction="Enter toyr word"
     strat=strategy()
     word_in=strat.handle("word", request)
     print(word_in)
 
-    if word_in is None:
-        word_in=""
-    
     if word_in == 'your word':
         reaction = "Congrats!"
     else:
         reaction = "Please, try again"
+
+    if word_in == "":
+        reaction="Enter your word"
 
     return render_template(
         'base.html',
