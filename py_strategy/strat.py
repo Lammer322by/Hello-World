@@ -3,35 +3,42 @@ from flask import Flask,request,render_template
 app = Flask(__name__, static_folder="static", static_url_path="", template_folder="templates")
 
 class strategy():
-    def __init__(self,request):
-        if self.request.method == 'GET':
-            self.handler=GetHandler(request)
-        elif self.request.method == 'POST':
-            self.handler=PostHandler(request)
+    def __init__(self):
+        pass
 
-    
-    def Handle(self,greets):
-        self.handler.handle(greets,self.request)
+    def handle(self,greets,request):
+        if request.method == 'GET':
+            self.handler=GetHandler()
+        elif request.method == 'POST':
+            self.handler=PostHandler()
+
+        print(greets,request)
+        return self.handler.handle(greets,request)
+
 
 class GetHandler:
     def handle(self,greets,request):
-        return request.form.get(greets)        
-        
+        wout=request.args.get(greets)        
+        return wout
+
 class PostHandler:
     def handle(self,greets,request):
-        return request.form.get(greets)       
-      
+        wout=request.form.get(greets)       
+        return wout
+
 @app.route('/')
 def root():
     return render_template(
-        'index.html'
+        'base.html'
     )
 
 @app.route('/home/cirno_game', methods = ['GET', 'POST'])
 def hello_name():
-    strat=strategy(request)
-    word_in=strat.handrle(request)
-    
+    reaction="Enter toyr word"
+    strat=strategy()
+    word_in=strat.handle("word", request)
+    print(word_in)
+
     if word_in is None:
         word_in=""
     
@@ -48,3 +55,4 @@ def hello_name():
 
 if __name__ == '__main__':
    app.run(debug = True)
+   	
